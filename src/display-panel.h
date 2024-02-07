@@ -41,6 +41,9 @@ class DisplayPanel {
         // Draw an outline around the panel
         // using textColor
         bool drawPanelOutline = false;
+        
+        // Fill the rectangle or not
+        bool fillPanel = true;
 
         // Color of the panel
         esphome::Color color;
@@ -116,11 +119,16 @@ class DisplayPanel {
             }
 
             // ESP_LOGD("panel", "Drawing panel x=%d, y=%d, w=%d, h=%d", x, y, w, h);
-
-            display.filled_rectangle(x, y, w, h, color);
-            if (drawPanelOutline) {
+            if (fillPanel) {
+              display.filled_rectangle(x, y, w, h, color);
+              if (drawPanelOutline) {
                 display.rectangle(x, y, w, h, textColor);
+              }
             }
+            else {
+              display.rectangle(x, y, w, h, textColor);
+            }
+            
         }
 
         void drawImageOrText(esphome::display::Display &display) {
