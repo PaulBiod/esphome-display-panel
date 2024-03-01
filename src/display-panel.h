@@ -36,7 +36,7 @@ class DisplayPanel {
         // positioning in printMiddle() or printMulti().
         // If the lines start too low in the panel,
         // set this to a negative value.
-        int fontVertOffset = 0;
+        int fontVertOffset = -2;
 
         // Draw an outline around the panel
         // using textColor
